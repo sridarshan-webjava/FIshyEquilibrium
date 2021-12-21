@@ -14,8 +14,11 @@ const Waiting = () => {
   const [waitingMsg, setWaitingMsg] = useState("");
 
   useEffect(() => {
-    if (sessionStorage.getItem("time-format"))
-      setTimeFormat(sessionStorage.getItem("time-format"));
+    sessionStorage.removeItem("time-val");
+    sessionStorage.removeItem("time-format");
+    sessionStorage.removeItem("time-percent");
+    if (sessionStorage.getItem("time-forma"))
+      setTimeFormat(sessionStorage.getItem("time-forma"));
     if (sessionStorage.getItem("active"))
       setActive(JSON.parse(sessionStorage.getItem("active")));
     if (sessionStorage.getItem("counter"))
@@ -42,7 +45,7 @@ const Waiting = () => {
               : minuteCounter;
           setTimeFormat(computedMinute + ":" + computedSecond);
           sessionStorage.setItem(
-            "time-format",
+            "time-forma",
             computedMinute + ":" + computedSecond
           );
           setCounter(counter => counter - 1);
